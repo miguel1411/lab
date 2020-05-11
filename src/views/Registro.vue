@@ -1,25 +1,13 @@
 <template>
   <div class="container">
 
-    <!-- <div class="container-left">
-      <div class="container-video">
-        <video autoplay loop>
-        <source src="https://morning-shelf-6185.herokuapp.com/assets/2015-01-01-bokeh-6e0d97b003dff1c88b95db3126cd4788.mp4" type="video/mp4; "/>        
-        Your browser does not support the video tag.
-      </video>
-      </div>
-    </div> -->
-
     <div class="container-right">
-
-      <!-- Sección de logo y titulo -->
       <div class="logo-container">
         <img src="../assets/logo.png" alt="">
         <h1>Registro de Pacientes para Prueba de Covid</h1>
       </div>
 
       <div class="sections">
-        <!-- Sección izquierda -->
         <div class="section-left">
           <el-row type="flex" class="row-bg">
           <el-col :span="24">
@@ -249,48 +237,23 @@ a{
 
 .sections{
   display: flex;
-  //background-color: black;
   justify-content:space-around;
   width: 100%;
-
   .section-left{
     width: 45%;
-
     .el-form.demo-form-inline.el-form--inline{
-      // display: flex;
-      // flex-direction: column;
-
-      //background-color: tomato;
-
       .el-form-item__content{
         width: 100%;
         margin-top: 10px;
       }
     }
-  
    .el-select{
      width: 100%;
    }
   }
   .el-form-item {
     margin-bottom: -5px;
-}
-
-  .section-right{
-    width: 45%;
-
-    .el-form.demo-form-inline.el-form--inline{
-      display: flex;
-      flex-direction: column;
-      //background-color: tomato;
-
-      .el-form-item__content{
-        width: 100%;
-      }
-    }
-  
   }
-
 }
 
 .logo-container{
@@ -313,7 +276,6 @@ a{
 }
 
 .el-button.el-button--default{
-
   color: #ffffff;
   background: #544cf9;
   background: -webkit-linear-gradient(left, #544cf9, #814cf9);
@@ -328,7 +290,7 @@ a{
   border-radius: 58px;
   
   width: 100%;
-  }
+}
 
   
 .el-row {
@@ -336,7 +298,7 @@ a{
   width: 100%;
 
   &:last-child {
-      margin-bottom: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -362,8 +324,6 @@ a{
   align-items: center;
   justify-content: center;
   background-color: rgb(50, 57, 77);
-  
-  //background-color: brown;
   img{
     padding: 20px;
 
@@ -428,38 +388,33 @@ a{
 
 @media screen and (max-width: 408px){
 
-.container{
-  h1{
-    font-size: 25px;
-  }
-}
-
-
-.el-input {
-    .el-input__inner {
-      border-radius: 19px;
-      width: 100%;
-      height: 35px;
-      font-size: 11px;
-  }
-}
-
-.btncheck{
-    display: flex;
-    justify-content:right;
-    
-    label{
-      font-weight: 900;
+  .container{
+    h1{
+      font-size: 25px;
     }
-    .el-checkbox{
-      margin-left: 0%;
-
+  }
+  .el-input {
+      .el-input__inner {
+        border-radius: 19px;
+        width: 100%;
+        height: 35px;
+        font-size: 11px;
+    }
+  }
+  .btncheck{
+      display: flex;
+      justify-content:right;
       label{
-        font-size: 10px;
+        font-weight: 900;
+      }
+      .el-checkbox{
+        margin-left: 0%;
+
+        label{
+          font-size: 10px;
+        }
       }
     }
-  }
-
   .information{
     font-size: 11px;
   }
