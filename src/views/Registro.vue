@@ -23,7 +23,7 @@
  
             <el-form-item prop="phone"><el-input v-model.number="formInline.phone" placeholder="Teléfono de Contacto "></el-input></el-form-item>
             <el-form-item prop="email"><el-input v-model="formInline.email" placeholder="Correo Electrónico"></el-input></el-form-item>
-            <el-form-item prop=date><el-date-picker v-model="formInline.date" type="date" placeholder="Fecha de Nacimiento" format="yyyy/MM/dd" value-format="yyyy-MM-dd">></el-date-picker></el-form-item>
+            <el-form-item prop=date><el-date-picker v-model="formInline.date" type="date" placeholder="Fecha de Nacimiento" format="yyyy/MM/dd" ></el-date-picker></el-form-item>
             <el-form-item prop="number"><el-input v-model.number="formInline.number" placeholder="Número de tarjeta Elite"></el-input></el-form-item>
             </el-form>
             </div>
@@ -47,7 +47,6 @@
 de datos y pasos a seguir.</label>
       </div>
     </div>
-    <h1>{{formInline.date}}</h1>
   </div>
 </template>
 
@@ -86,7 +85,7 @@ de datos y pasos a seguir.</label>
             { 
               required: true,
               message: 'El campo es requerido',
-              trigger: 'blur'
+              trigger: 'change'
             },
           ],
           rfc: [
@@ -155,12 +154,8 @@ de datos y pasos a seguir.</label>
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
-            console.log(this.formInline.phone)
-
           } else {
             console.log('error submit!!');
-                        console.log(formName.phone)
-
             return false;
           }
         });
