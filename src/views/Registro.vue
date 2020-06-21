@@ -14,13 +14,13 @@
                   <div class="inputs">
                     <el-form-item prop="name"> <el-input v-model="formInline.name" placeholder="Ingrese su nombre" onkeyup="this.value = this.value.toUpperCase()"></el-input></el-form-item>
                     <el-form-item prop="lastname"> <el-input v-model="formInline.lastname" placeholder="Ingrese su apellido" onkeyup="this.value = this.value.toUpperCase()"></el-input></el-form-item>
-                    <el-form-item prop="gender">
-                      <el-select v-model="formInline.gender" placeholder="Género de Nacimiento">
+                    <el-form-item prop="gender" id="gender">
+                      <el-select v-model="formInline.gender" placeholder="Género">
                         <el-option label="Masculino" value="Masculino"></el-option>
                         <el-option label="Femenino" value="Femenino"></el-option>
                       </el-select>
                     </el-form-item>
-                    <el-form-item prop="phone"><el-input v-model.number="formInline.phone" placeholder="Teléfono de Contacto "></el-input></el-form-item>
+                    <el-form-item prop="phone"><el-input v-model.number="formInline.phone" placeholder="Teléfono de Contacto"></el-input></el-form-item>
                     <el-form-item prop="email"><el-input v-model="formInline.email" placeholder="Correo Electrónico"></el-input></el-form-item>
                     <el-form-item prop="number"><el-input v-model.number="formInline.number" placeholder="Número de tarjeta Elite"></el-input></el-form-item>
                     <div class="fecha">
@@ -176,6 +176,10 @@ import DateDropdown from 'vue-date-dropdown'
   justify-content:space-between;
   margin-top: 55px;
 
+  #gender{
+    width: 205px;
+  }
+
   .fecha{
     display: flex;
     justify-content: center;
@@ -323,15 +327,18 @@ a{
     width: 64px;
   }
 }
-@media screen and (max-width: 938px){
+@media screen and (max-width: 964px){
 .container{
-    margin-top: 20px;
-    flex-direction: column-reverse;
-    h1{
-      text-align: center;
-      font-size: 35px;
-      font-weight: bold;
-    }
+  margin-top: 20px;
+  flex-direction: column-reverse;
+  h1{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  #gender{
+    width: 157px;
+  }
   .btncheck{
     display: flex;
     text-align: justify;
@@ -377,6 +384,9 @@ a{
     h1{
       font-size: 25px;
     }
+  #gender{
+    width: 94.9%;
+  }
   }
   .el-input{
     .el-input__inner{
@@ -401,6 +411,22 @@ a{
   }
   .information{
     font-size: 11px;
+  }
+}
+@media  screen and (max-width: 380px) {
+  #gender{
+    width: 10%;
+  }
+  .el-input {
+    .el-input__inner {
+      font-size:9px;
+      border-radius: 19px;
+      width: 100%;
+      height: 35px;
+    }
+  }
+  label{
+    font-size: 13px;
   }
 }
 </style>
