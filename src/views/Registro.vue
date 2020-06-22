@@ -24,9 +24,17 @@
                     <el-form-item prop="email"><el-input v-model="formInline.email" placeholder="Correo Electrónico"></el-input></el-form-item>
                     <el-form-item prop="number"><el-input v-model.number="formInline.number" placeholder="Número de tarjeta Elite"></el-input></el-form-item>
                     <div class="fecha">
-                    <label>Fecha de Nacimiento:</label>
-                    <el-form-item><date-dropdown default="1995-01-10" min="1921" max="2021" months-names="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre" v-model="formInline.selectedDate"/></el-form-item>
-                  </div>
+                      <label>Fecha de Nacimiento:</label>
+                      <el-form-item><date-dropdown default="1995-01-10" min="1921" max="2021" months-names="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre" v-model="formInline.selectedDate"/></el-form-item>
+                    </div>
+                    <div class="check">
+                      <el-form-item prop="checked" id="check">
+                      <!-- En la linea #41 se encuentra la dirrección de las Políticas de Privacidad -->
+                      <el-checkbox v-model="formInline.checked">
+                        <p> Estoy de Acuerdo con los <a href="">Términos y Condiciones</a>,<br>así como las <a href="">Políticas de Privacidad</a>.</p>
+                        </el-checkbox>
+                      </el-form-item>
+                    </div>
                   </div>
                 </el-form>
               </div>
@@ -36,10 +44,6 @@
       </div>
       <div class="btncheck">
         <el-form>
-          <el-form-item prop="checked">
-            <!-- En la linea #41 se encuentra la dirrección de las Políticas de Privacidad -->
-            <el-checkbox v-model="formInline.checked"><label> Estoy de Acuerdo con los <a href="">Términos y Condiciones</a>,<br> así como la <a href="">Políticas de Privacidad </a>.</label></el-checkbox>
-          </el-form-item>
           <el-form-item>
           <el-button  @click="submitForm('formInline')">Ir al siguiente paso. <i class="el-icon-arrow-right"></i></el-button>
           </el-form-item>
@@ -69,7 +73,7 @@ import DateDropdown from 'vue-date-dropdown'
           phone: '',
           email: '',
           number: '',
-          checked: true,
+          checked: '',
         },
 
         rules: {
@@ -138,7 +142,7 @@ import DateDropdown from 'vue-date-dropdown'
           checked:[
             {
               required: true,
-              message: 'Please select activity resource',
+              message: 'El campo es requerido',
               trigger: 'change'
             }
           ]
@@ -168,6 +172,8 @@ import DateDropdown from 'vue-date-dropdown'
 @import url('https://fonts.googleapis.com/css2?family=Arimo&family=Montserrat&display=swap');
 
 .container{
+  padding: 0;
+  margin: 0;
   font-family: 'Arimo', sans-serif;
   height: auto;
   width: 100%;
@@ -175,6 +181,22 @@ import DateDropdown from 'vue-date-dropdown'
   flex-flow: row nowrap;
   justify-content:space-between;
   margin-top: 55px;
+
+  .section-left{
+    width: 100%;
+  }
+
+  .information{
+    height: 90px;
+    img{
+      padding: 5px;
+    }
+    label{
+      width: 350px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
 
   #gender{
     width: 205px;
@@ -212,10 +234,8 @@ import DateDropdown from 'vue-date-dropdown'
       font-weight: 900;
     }
     .el-button{
-    }
-    .el-checkbox{
-      margin-left: 8%;
-      margin: 5px;
+      width: 250px;
+      font-size: 15px;
     }
   }
   .grid-content.bg-purple{
@@ -263,6 +283,22 @@ a{
   }
   .el-form-item{
     margin-bottom: -5px;
+  }
+  .check{
+    width: 100%;
+  }
+  #check{
+    margin-left: -300px;
+    width: 250px;
+    margin-top: 0.5em;
+
+    p{
+      text-align: justify;
+    }
+
+  .el-form-item__content{
+      margin-left: 150px;  
+    }
   }
 }
 .logo-container{
@@ -346,13 +382,6 @@ a{
     label{
       font-weight: 900;
     }
-    .el-button{
-      margin-left: 0%;
-    }
-
-    .el-checkbox{
-      margin-left: 0%;
-    }
   }
 }
   .sections{
@@ -377,9 +406,14 @@ a{
       height: 35px;
     }
   }
+  .check{
+      .el-form-item__content{
+    margin-left: 200px;  
+  }
+  }
 }
 
-@media screen and (max-width: 408px){
+@media screen and (max-width: 414px){
   .container{
     h1{
       font-size: 25px;
@@ -397,13 +431,11 @@ a{
     }
   }
   .btncheck{
-    display: flex;
     justify-content:right;
     label{
       font-weight: 900;
     }
     .el-checkbox{
-      margin-left: 0%;
       label{
         font-size: 10px;
       }
@@ -412,12 +444,31 @@ a{
   .information{
     font-size: 11px;
   }
+  #check{
+    p{
+      font-size: 10px;
+    }
+  }
 }
 @media  screen and (max-width: 380px) {
-  #gender{
-    width: 10%;
+ .container{
+    .section-left{
+      width: 100%;
+    }
+    #gender{
+      width: 80%;
+    }
+  }
+  .check{
+    .el-form-item{
+      margin-left: 15px;
+    }
+  }
+  .el-form-item.is-required{
+      width: 80%;
   }
   .el-input {
+
     .el-input__inner {
       font-size:9px;
       border-radius: 19px;
@@ -428,5 +479,29 @@ a{
   label{
     font-size: 13px;
   }
+  .information{
+    img{
+      padding: 5px;
+    }
+    label{
+      width: 70%;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+  #check{
+    .el-form-item__content{
+      margin-left: 150px;  
+    }
+  }
 }
+
+@media screen and (max-width: 650px){
+  #check{
+    margin-left: -300px;
+    width: 250px;
+    margin-top: 0.5em;
+  }
+}
+
 </style>
