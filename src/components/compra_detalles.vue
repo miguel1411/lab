@@ -9,7 +9,7 @@
       </div>
     </header>
       <div class="table">
-        <p style="font-size: 30px; text-align: center; color: rgb(23,120,177);">Detalles de Compra</p>
+        <p id="titulo">Detalles de Compra</p>
         <table id="vertical-1">
             <tr>
                 <th>Estudios</th>
@@ -24,7 +24,7 @@
                 <td><p style="color: #1778B1; font-weight: bold;">Cualquiera de nuestras Sucursales en Tijuana</p>
                 <p>- Lunes a Viernes 7am-6pm</p>
                 <p>-Sábado 7am-2pm</p>
-                <p>----------------------------------------------------------</p>
+                <p>-----------------------------------</p>
                 <p>Domingos 7am-2pm</p>
                 <p>(solo en Sucursales Río, Hipodromo, Santa Fé, Playas y Otay).</p>
                 </td>
@@ -54,7 +54,7 @@
     <div class="detalles-pago">
       <div style="border-bottom-style: dotted; border-color: rgba(21,61,105,1); height: 50px;"></div>
       <div class="pago">
-        <p style="font-size: 30px; text-align: center; color:rgb(23,120,177);">DETALLES DE PAGO</p>
+        <p id="titulo">DETALLES DE PAGO</p>
       </div>
     </div>
   </div>
@@ -131,8 +131,14 @@ export default {
       text-align: left;
       padding-left: 55px;
     }
+
   }
- 
+  #titulo{
+    color: #177BB1;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+  }
 
   .pago{
     margin-top: 25px;

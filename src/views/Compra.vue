@@ -2,15 +2,18 @@
   <div class="container-compra">
     <cabecera></cabecera>
     <div class="body">
+      <!-- Informacion de usuario -->
       <div class="information" >
-        <p>Gracias {{nombre}} por su confianza en Certus Laboratorio</p>
-        <P id="compra">Fecha de compra: <label>{{fecha}}</label></P>
+        <div class="information-text">
+          <p> Gracias {{nombre}} por su confianza en Certus Laboratorio</p><br><br>
+          <p id="compra"> Fecha de compra: <label id="fecha">{{fecha}}</label></p>
+        </div>
         <div class="fondo">
-          <p id="clave"> <label>Clave de confirmación: <br><br>{{clave}}</label></p>
+          <p id="clave">Clave de confirmación: <br><br>{{clave}}</p>
         </div>
       </div>
-      <div class="image-client" >
-        <img src="../assets/perfil.jpg" alt="">
+      <!-- Imagen  -->
+      <div class="image-client">
       </div>
     </div>
     <div class="body-inferior">
@@ -44,22 +47,33 @@
     <div class="facturacion-politicas">
       <div class="facturacion">
         <label>Facturación</label>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque natus deleniti ullam molestiae consequuntur, quaerat voluptate, tempora fuga provident at incidunt voluptatum assumenda repudiandae sed, praesentium quibusdam sapiente dolor aspernatur.</p>
+        <div class="texto">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis accusamus illo, harum expedita dolor quae veritatis animi voluptate voluptates ab, magnam, pariatur numquam aperiam nulla quibusdam corrupti molestias magni voluptas?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis pariatur explicabo saepe dolore laborum iste praesentium eos incidunt error cum iusto, distinctio blanditiis! Nisi aperiam rerum dolorum illum velit nesciunt.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque natus deleniti ullam molestiae consequuntur, quaerat voluptate, tempora fuga provident at incidunt voluptatum assumenda repudiandae sed, praesentium quibusdam sapiente dolor aspernatur.
+          </p>
+        </div>
       </div>
       <div class="politicas" >
         <label>Política de consumo y cancelación</label>
+        <div class="texto">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quos neque ex, quidem consequatur sunt iste nesciunt eos, reiciendis officiis adipisci eum nemo. Odit nihil similique laborum, magni porro quis.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis accusamus illo, harum expedita dolor quae veritatis animi voluptate voluptates ab, magnam, pariatur numquam aperiam nulla quibusdam corrupti molestias magni voluptas?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis pariatur explicabo saepe dolore laborum iste praesentium eos incidunt error cum iusto, distinctio blanditiis! Nisi aperiam rerum dolorum illum velit nesciunt.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque natus deleniti ullam molestiae consequuntur, quaerat voluptate, tempora fuga provident at incidunt voluptatum assumenda repudiandae sed, praesentium quibusdam sapiente dolor aspernatur.
           </p>
+        </div>      
       </div>
     </div>
+    <footerinf id="footer"></footerinf>
   </div>
 </template>
 
 <script>
 import detalles from '../components/compra_detalles'
 import cabecera from '../components/header'
-//import pago     from '../components/detalles_pago'
+import footerinf   from '../components/secondfooter'
 
 export default {
   data(){
@@ -68,40 +82,25 @@ export default {
       fecha:  '19/Jun/2020',
       clave: 'PO-20200612003',
       total: 3750,
-      estudios: ['- Detección de COVID-19 por PCR','- Detección de COVID-18 por PCR', ],
+      estudios: ['- Detección de COVID-19 por PCR','- Detección de anticuerpos IgG COVID-19' ],
       cita: 'Jueves 22 de Julio a las 11:45 AM'
     }
   },
   components: {
     detalles,
     cabecera,
-    //pago
+    footerinf
   }
 }
 </script>
 
 <style lang="less">
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
   .container-compra{
     height: auto;
     width: 100%;
-    font-family: 'Roboto', sans-serif;  }
-  .div-header {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: rgb(23,120,177);
-    background: -moz-linear-gradient(230deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 70%);
-    background: -webkit-linear-gradient(230deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 70%);
-    background: linear-gradient(230deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 70%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1778b1",endColorstr="#30b8e7",GradientType=1);
-
-    width: 100%; 
-    height: 200px; 
-    border: 0px solid #555; 
+    font-family: 'Montserrat', sans-serif;  
   }
 
   .body{
@@ -109,45 +108,67 @@ export default {
     flex-direction: row-reverse;
 
     width: 100%;
-    height: auto;
+    height: 800px;
 
     margin-top: 15px;
 
     .information{
-      width: 50%;
+      width: 100%;
       flex-direction: column;
       
       background: rgb(23,120,177);
-      background: -moz-linear-gradient(250deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 75%);
-      background: -webkit-linear-gradient(250deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 75%);
-      background: linear-gradient(250deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 75%);
+      background: -moz-linear-gradient(250deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 80%);
+      background: -webkit-linear-gradient(250deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 80%);
+      background: linear-gradient(250deg, rgba(23,120,177,1) 0%, rgba(48,184,231,1) 80%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1778b1",endColorstr="#30b8e7",GradientType=1);
 
-      p{
-        text-align: left;
-        margin-left: 80px;
-        font-size: 30px;
-      }
-      #compra{
-        text-align: left;
-        font-size: 20px;
+      .information-text{
+        flex-direction: column;
+        width: 100%;
       }
 
+      p{
+        margin-left: 30px;
+        width: 100%;
+        text-align: left;
+        font-size: 40px;
+        font-weight: 900px;
+        margin-left: 50px;
+        width: 50%;
+      }
+      #fecha{
+        font-size: 36px
+      }
+      #compra{
+        font-weight: 400;
+        font-size: 16px;
+      }
       .fondo{
+        margin-top: 35px;
         background-color: rgba(23, 120, 177, 0.8);
         width: 100%;
+
         #clave{
-          text-align: left;
           font-size: 20px;
         }
       }
     }
     .image-client{
-      width: 50%;
+      width: 100%;
+      
+      background-image: url(../assets/perfil.jpg);
+      background-size:cover;
+      //background-position: center;
+      background-repeat: no-repeat;
     }
   }
   .body-inferior{
-    font-size: 30px;
+    color: #177BB1;
+    font-size: 25px;
+
+    p{
+      font-weight: 600;
+    }
   }
   .total{
     border-style: dotted;
@@ -188,13 +209,21 @@ export default {
   }
 
   .facturacion-politicas{
-    margin-top: 65px;
-    
+    margin-top: 65px;    
     .facturacion{
-
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      flex-direction: column;
     }
     .politicas{
       margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     label{
@@ -202,6 +231,52 @@ export default {
       font-size: 20px;
       text-align: center;
       color:rgb(23,120,177);
+    }
+
+    .texto{
+      width: 45%;
+    }
+  }
+  #footer{
+    margin-top: 60px;
+  }
+  
+  @media screen and (max-width: 1123px){
+    .container-compra{
+      display: flex;
+      flex-direction: column;
+      .body{
+        flex-direction: column;
+        .information{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+        .image-client{
+          height: 4500px;
+          width: 100%;
+          background-color: rgb(23,120,177);
+        }
+      }
+    }
+  }
+  @media screen and(max-width: 1769px){
+    .container-compra{
+      display: flex;
+      flex-direction: column;
+    .body{
+      flex-direction: column;
+      .information{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .image-client{
+        height: 500px;
+        width: 100%;
+        background-color: rgb(23,120,177);
+      }
+      }
     }
   }
 </style>
